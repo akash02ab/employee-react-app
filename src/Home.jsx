@@ -1,13 +1,22 @@
-import './style.css';
-import UserCard from './UserCard';
+import "./style.css";
+import UserCard from "./UserCard";
+import users from "./users";
 
-function Home(props) {
-    return (
-        <div class="container">
-            <h1>Users At Acme Inc.</h1>
-            <UserCard />
-        </div>
-    );
+function Home() {
+	return (
+		<div class="outer-one">
+			<h1>Users At Acme Inc.</h1>
+			<div class="container">
+				{users.map((user) => (
+					<UserCard
+						name={user.name}
+						email={user.email}
+						avatar={user.picture.medium}
+					/>
+				))}
+			</div>
+		</div>
+	);
 }
 
 export default Home;
